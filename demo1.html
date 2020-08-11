@@ -1,0 +1,50 @@
+        <!DOCTYPE html><!--tagt määrittää html version HTML-->
+        <html>
+            <head>
+                <title>Demo 1</title>
+                <meta charset="UTF-8">
+            </head>
+            <body>
+                <h1>Isoin otsikko</h1>
+                <h2>toiseksi isoin otsikko</h2>
+                <h6>pienin otsikko</h6>
+                <p>tämaä ont tekstikappale, tag on p, tulee sanasta paragraph</p>
+                <p>toinene kappale jättää välin edelliseen</p><br>
+                <p>rivinvaihto voi tehdä tagilla br, tulee sanasta break</p>
+                <h2>listat</h2>
+                <h3>tavallinen lista</h3>
+                <p>tavallisen listan alkutag on u1</p>
+                <u1>
+                    <li>ensimmäinen elementti, tag on li</li>
+                    <li>toinen elementti</li>
+                </u1>
+
+                <h3>numeroitu lista</h3>
+                <p>numeroidun listan tag on ol</p>
+                <ol>
+                    <li>eka elementti</li>
+                    <li>toka elementti</li>
+                    <li>kolmas elementti</li>
+                </ol>
+                <h2>linkkejä</h2>
+                <h3>ulkoiset sivut</h3>
+                <p>käytä koko url:ää</p>
+                <p>linkki alkaa tagilla a (anchor), href (reference) kertoo, mihin linkki vie.<br>
+                     tagien väliin tulee se teksti, minkä lukija näkee.<br>
+                     jos haluat avata sivu toiselle välilehdelle, lisää target-atribuutti ja anna sen arvoksi _blank</p>
+                <ul>
+                <li><a href="http://leeniemi.net" target="_blank">leenan sivustolle</a> </li>
+                </ul>
+                <h3> linkki omille sivuille</h3>
+                <p>linkit suhteellisina viittauksina</p>
+                <p>jost sivut on samassa kansiossa, voit viitata siihen suoraan 
+                    sen nimellä, esim. a herd ="sivu2.html"</p>
+                    <p> jos sivu on alikansiossa, viittaat polulla alikansioon, esim. a href ="./alikansio/sivu2.html" </p>
+                        <p>jos sivu on vierekäisessä kansiossa, polkuun tulee alkuun viittaus ylöspäin, esim. </P>
+                            <h1>kuvat</h1>
+                            <p>kuva listataan tagilla img. pakollinen atribuutti on alt (alternative), johon kirjtoitetaan vaihtoehto, 
+                                jos kuva ei toimi toinen pakollinen on src (source)
+                            </p>
+                            <p><img src="./kuvat/otus.jpg" alt ="otus"></p>
+            </body>
+        </html>
