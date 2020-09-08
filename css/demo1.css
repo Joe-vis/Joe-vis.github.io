@@ -1,0 +1,47 @@
+body {
+    /*background-color: #09f89c;
+    background-image: url("../harj/kuvat/taus.png");
+    background-repeat: repeat; */
+    /*background-image: url("../harj/kuvat/vaaka.jpg");
+    background-repeat: repeat-y;*/
+    /*background-image: url("../harj/kuvat/polle.jpg");
+    background-repeat:no-repeat;
+    background-position: right top;
+    background-attachment: fixed;*/
+    background-image: url("../harj/kuvat/tumma.jpg");
+    background-size:100%;
+    color: #ffffff;
+    margin-left:60px;
+    font-family:"Arial Bold", sans-serif;
+    font-size: 1.3em
+}
+h1 {
+    color: orange;
+    margin-top: 50px;
+    font-family: 'trebuchet Ms','Times New Roman';
+    font-size: 5em; 
+}
+
+h2 {
+    font-family:'Verdana','sherif';
+    font-size: 2em; 
+}
+
+ #tarkein {
+     border: solid 1px #ffffff;
+     border-radius: 7px;
+     padding: 10px;
+     background-color: #333333
+ }
+ img{
+     width: 300px;
+     border:300px #00ff00 solid;
+     padding: 300px;
+     margin: 100px;
+     outline: 30px dotted red;
+ }
+ .kuvateksti{
+     color: #00ffff;
+     font-style: italic;
+ }
+
