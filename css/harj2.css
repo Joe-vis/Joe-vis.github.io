@@ -1,0 +1,10 @@
+/*ei varmaan oikee harjoitus 2*/
+.b{display: flex;
+    flex-direction: row;}
+.a{
+border: black solid;
+border-radius: 50%;
+}
+
+
+
