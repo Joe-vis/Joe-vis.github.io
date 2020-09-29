@@ -1,7 +1,7 @@
 /*ei varmaan oikee harjoitus 2*/
 
-body{background-color: rgb(33, 33, 33);
-    margin: 0;
+body{background-color: rgb(44, 44, 44);
+    margin:0px
     
 }
 
@@ -10,20 +10,34 @@ body{background-color: rgb(33, 33, 33);
 .a{
 border: black solid;
 border-radius: 50%;
+width:100px;
+height:100px
 }
 nav{ 
      overflow: hidden;
     background-color:black;
     position: fixed; 
     top: 0; 
-    width: 100%;
+    width: 100%;   
     
 }
-
+a:hover:not(.active){
+    background-color: purple
 }
-.section{
-    display:flex;
-    align-items: center;
+section{
+
+    height: 100vh;
+    
+}
+#hinnasto{
+    background-color: lightblue;
+    display:flex
+}
+#hinnastot{
+    flex-direction: row
+}
+#hinnastokuva{
+   
 }
 .nav{
   display: inline;
@@ -31,3 +45,6 @@ nav{
   text-align: center;
   padding: 14px 150px;
 }
+#markkinat{background-color: blueviolet;}  
+/*  display:flex;
+align-items: center;*/
