@@ -1,0 +1,29 @@
+body{margin: 0px;
+    padding-top:100px;
+    background-image: url("../harj/kuvat/wood-background1.jpg");
+    background-position: center;
+    color:white
+}
+h1{text-shadow: 2px 2px;}
+header{font-family: 'Amatic SC', cursive;
+font-size: 30px;
+}
+div{display:flex;
+
+}
+li{border-left: 1px solid #bbb;}
+nav{
+   
+    overflow: hidden;
+    position: fixed; 
+    top: 0; 
+    width: 100%;   
+    text-align: right;
+    }
+.nav{display: inline-block;
+    color: white;
+    padding: 15px 30px;
+background-color: lightblue}
+    
+    a{color: black;
+        }

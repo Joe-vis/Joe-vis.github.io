@@ -3,14 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>harj 2</title>
+    <link rel="stylesheet" type="text/css" href="../css/oula.css">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+       
+        <nav>
+                <ul>
+                  <li class="nav"><a href="#lounas">Lounasmenu</a></li>
+                  <li class="nav"><a href="#ajat">aukioloajat</a></li>
+                  <li class="nav"><a href="#ajanvaraus">ajanvaraus</a></li>
+                  <li class="nav"><a href="#yhteystiedot">yhteystiedot</a></li>
+                </ul>
+       </nav>
     <img src="./kuvat/lohi.jpg" alt="lohi">
     <img src="./kuvat/kampela.jpg" alt="kampela">
     <img src="./kuvat/kalkkuna.jpg" alt="kalkkuna">
     <img src="./kuvat/poronkaristys.jpg" alt="poronkäristys">
     <img src="./kuvat/paisti.jpg" alt="paahtopaisti">
-
+   <header>
+    <a id="lounas"></a>
 <h1>Lounasmenu</h1>
 <p>
         Maanantai<br><br>
@@ -48,7 +60,10 @@
         Suklaamousse<br>
         </p>
         <p>lounainden hinta 11€ (sisältää ruokajuoman - kotikalja,vesi,maito) </p>
-    <h1>Taulukko aukioloajoista</h1>
+
+        <a id="ajat"></a>
+    <h2>Taulukko aukioloajoista</h2>
+</header>
         <table>
 <tr>  
     <th>päivä</th>
@@ -71,8 +86,22 @@
     <td>á la carte -lista</td>
 </tr>
 </table>
+<a id="ajanvaraus"></a>
+<h2>Ajanvaraus</h2>
 
-<h1>yhteystiedot</h1>
+<form action="">
+    <input type="text" placeholder="le Nimi"> <br>
+    <input type="text" placeholder="le Puhelin Numero"><br>
+    <input type="text" placeholder="le sähköposti"><br>
+    <input type="date" placeholder="pvm"><br>
+    <input type="time" placeholder="le aika"> <br>
+    <textarea placeholder=" Erikoistoiveet"></textarea><br>
+    <input type="submit" value=" lähetä">
+</form>
+<a id="yhteystiedot"></a>
+<h2>yhteystiedot</h2>
+
+<div>
 <address>
     Ravintola Oula<br>
     hallituskatu 12<br>
@@ -81,8 +110,10 @@
     Puh. (016) 555 4755<br>
     Fax (016) 555 4756<br>
     E-Mail: ravintola.oula@oulanet.fi<br>
+    
 </address>
-
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1337.9654499412372!2d25.723586591475865!3d66.49715479940937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x442b4bed11188d49%3A0x1657bd88c2a942ae!2sHallituskatu%2012%2C%2096100%20Rovaniemi!5e0!3m2!1sfi!2sfi!4v1601962593886!5m2!1sfi!2sfi" width="200" height="150" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+</div>
 
 
 
