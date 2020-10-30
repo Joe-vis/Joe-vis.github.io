@@ -1,0 +1,59 @@
+*{
+    width: 100%;
+    height: 100%;
+margin: 0%;}
+div.container {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: [left] 10rem auto 10rem[right];
+    grid-template-rows: 5rem auto 5rem;
+    grid-template-areas: 
+    "head head head"
+    "nav nav nav"
+    "panleft mainbody panright"
+    "foot foot foot";
+
+}
+nav{
+    background-color: blue;
+    grid-area: nav;
+   
+}
+header {
+    background: rgb(0,0,0,0.2);
+    grid-area: head;
+}
+footer{
+    background: rgb(0,0,0,0.2);
+    grid-area: foot;
+}
+main{
+    background: rgb(0,0,0,0.3);
+    grid-area: mainbody;
+}
+.canvas{
+    background: rgb(0,0,0,0.1);
+    grid-area: panleft;
+}
+.right-sidebar{
+    background: rgb(0,0,0,0.1);
+    grid-area: panright;
+}
+
+@media screen and (max-width: 50rem){
+    .canvas{
+        grid-column-end: left;
+        display: none;
+    }
+    .right-sidebar{
+        grid-column-start: right;
+        display: none;
+    }
+    main{
+        grid-column-start: left;
+        grid-column-end: right;
+        
+    }
+    
+}
