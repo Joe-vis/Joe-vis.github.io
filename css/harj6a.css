@@ -6,12 +6,12 @@ div.container {
     display: grid;
     width: 100%;
     height: 100%;
-    grid-template-columns: [left] 10rem auto 10rem[right];
-    grid-template-rows: 5rem auto 5rem;
+    grid-template-columns: [left] auto 30rem 20rem[right];
+    grid-template-rows: 5rem 2rem auto 5rem;
     grid-template-areas: 
     "head head head"
     "nav nav nav"
-    "panleft mainbody panright"
+    "mainbody panleft panright"
     "foot foot foot";
 
 }
@@ -33,7 +33,7 @@ main{
     grid-area: mainbody;
 }
 .canvas{
-    background: rgb(0,0,0,0.1);
+    background: rgb(0,0,0,0.5);
     grid-area: panleft;
 }
 .right-sidebar{
@@ -41,19 +41,85 @@ main{
     grid-area: panright;
 }
 
+@media screen and (max-width: 80rem){
+    
+    div.container {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        grid-template-columns: [left] auto 30rem 20rem[right];
+        grid-template-rows: 5rem 2rem auto 5rem 5rem;
+        grid-template-areas: 
+        "head head head"
+        "nav nav nav"
+        "mainbody mainbody panleft "
+        "panright panright panright"
+        "foot foot foot";
+    
+    }
+    
+}
 @media screen and (max-width: 50rem){
-    .canvas{
-        grid-column-end: left;
-        display: none;
-    }
-    .right-sidebar{
-        grid-column-start: right;
-        display: none;
-    }
+
+
     main{
         grid-column-start: left;
         grid-column-end: right;
         
     }
+    .canvas{
+        background: rgb(0,0,0,0.5);
+        display: none;
+    }
+    .right-sidebar{
+        background: rgb(0,0,0,0.5);
+        display: none;
+    }
+    div.container {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        grid-template-columns: [left] auto auto auto[right];
+        grid-template-rows: 5rem 2rem auto 5rem;
+        grid-template-areas: 
+        "head head head"
+        "nav nav nav"
+        "mainbody mainbody mainbody "
+        "foot foot foot";
     
+    }
+}
+@media screen and (max-width: 30rem){
+
+
+    main{
+        grid-column-start: left;
+        grid-column-end: right;
+        
+    }
+    .canvas{
+        background: rgb(0,0,0,0.5);
+        display: none;
+    }
+    .right-sidebar{
+        background: rgb(0,0,0,0.5);
+        display: none;
+    }
+    footer{
+        background: rgb(0,0,0,0.2);
+       display: none;
+    }
+    div.container {
+        display: grid;
+        width: 100%;
+        height: 100%;
+        grid-template-columns: [left] auto auto auto[right];
+        grid-template-rows: 5rem 2rem auto;
+        grid-template-areas: 
+        "head head head"
+        "nav nav nav"
+        "mainbody mainbody mainbody ";
+    
+    }
+
 }

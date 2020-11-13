@@ -1,0 +1,53 @@
+:root{
+    --primary-colur:#3a405a;
+    --secondary-colur:#F9DEC9
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url("../harj/kuvat/book-4.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+}
+a{
+    width: max-content;
+    /* height:100px; */
+    color: var(--secondary-colur);
+    text-decoration: none;
+}
+a:hover{  
+    text-decoration: underline;
+}
+nav{ 
+    overflow: hidden;
+    background-color: var(--primary-colur);
+    position: fixed; 
+    top: 0; 
+    width: 100%;   
+        
+}
+.nav{
+    color: #F9DEC9;
+    text-align: end ;
+    padding: 16px 25px 20px 0px; 
+  }
+  .Lankuake{
+    color: #F9DEC9;
+    text-align: end ;
+    padding: 16px 0px 20px 2px; 
+  }
+  #emiohomo{ 
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-right:25px;
+}
+#oof{
+    width: 20px;
+    height: 20px;    
+}
