@@ -11,7 +11,7 @@ body{
     background-image: url("../harj/kuvat/book-4.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
-
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 a{
     width: max-content;
@@ -27,7 +27,7 @@ nav{
     background-color: var(--primary-colur);
     position: fixed; 
     top: 0; 
-    width: 100%;   
+    width: 100%;    
         
 }
 .nav{
@@ -40,14 +40,37 @@ nav{
     text-align: end ;
     padding: 16px 0px 20px 2px; 
   }
-  #emiohomo{ 
+  #navi{ 
     display: flex;
     list-style: none;
     flex-direction: row;
     justify-content: flex-end;
     padding-right:25px;
+    font-size: 20px;
 }
-#oof{
-    width: 20px;
-    height: 20px;    
+p{
+    color: white;
 }
+
+#drop:hover #drpdwnstuff{
+    display: block;
+}
+#drpdwnstuff{ 
+    position: absolute;
+    background-color: var(--primary-colur);
+    left: 50%;
+    top: 63px;
+    overflow: hidden;
+    width: fit-content;
+    display:none; 
+}
+.column{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#drpdwnstuff a{ padding: 10px;}
+
+
+
