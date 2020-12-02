@@ -4,50 +4,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/harj7.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 </head>
 <body>
     <nav>
         <ul id="navi" >
-           
-            <li class="nav"> <a href="#">persettä</a></li>
-            <li class="nav"> <a href="#">kirjudu</a><img src="./kuvat/891399.png" style="height: 15px;"></li>
-            <li class="Lankuake"><a href="#">FI|</a></li>
-            <li class="Lankuake"><a href="#">SE|</a></li>
-            <li class="Lankuake"><a href="#">EN</a></li>
+            <div id="drop">
+
+                <div class="navbar">
+                   
+                    <a href="#home">Yhteystiedot</a>
+                    <a href="#news">Kirjaudu <img src="./kuvat/891399.png" id="lukko"></a> 
+                    <a href="#" id="lang">FI|</a>
+                    <a href="#" id="lang">EN|</a>
+                    <a href="#" id="lang">SE  </a>
+                    
+                    
+                    <div class="dropdown">
+                      <button class="dropbtn">tietoja >
+                        <i class="fa fa-caret-down"></i>
+                      </button>
+                      <div class="dropdown-content">
+                        <div class="row">
+                          <div class="column">
+                            <a href="#">Tutustu ></a>
+                            <a href="#">Varainhankinta ></a>
+                            <a href="#" id="vali">Töihin ></a>
+                            <a href="#">Tietosuoja ></a>
+                            <p>Tietosuoja on meille tärkeä ja <br>
+                                haluammekin osoittaa, miten ja <br>
+                                minkälaisten tehtävien hoitamiseksi <br>
+                                henkilötietoja käsittelemme. </p>
+                          </div>
+                          <div class="column">
+                            <a href="#">Laatu ></a>
+                            <p> Tervetuloa tutustumaan meidän laatuun. Näillä <br> 
+                                sivuilla kerromme, kuinka me vastaamme <br>
+                                toimintansa laadusta eurooppalaisen <br>
+                                korkeakoulutusalueen periaatteiden mukaisesti.</p>
+                            <a href="#">Kansainvälisyys ></a>
+                            <p> Kansainvälisty kanssamme! Hyödynnä <br>
+                                laajaa kansainvälistä verkostoamme sekä <br>
+                                osaamistamme kilpailukykysi <br>
+                                kehittäjänä. </p>
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            
         </ul>
     
     </nav>
-    <div id="drop">
-
-        <li class="nav" > <button>tietoja</button></li>
     
-        <div id="drpdwnstuff">
-            <div class="column">
-                <a id="b" href="#">Tutustu ></a>
-                <a id="b" href="#">Varainhankinta ></a>
-                <a id="b" href="https://www.kela.fi/">Töihin ></a>
-                <a href="#">Tietosuoja ></a>
-                <p>Tietosuoja on meille tärkeä ja <br>
-                    haluammekin osoittaa, miten ja <br>
-                    minkälaisten tehtävien hoitamiseksi <br>
-                    henkilötietoja käsittelemme. <br>
-                    </p>
-              </div>
-              <div class="column">
-                <a href="#">Laatu ></a>
-                <p>Tervetuloa tutustumaan meidän laatuun. Näillä <br>
-                    sivuilla kerromme, kuinka me vastaamme<br>
-                    toimintansa laadusta eurooppalaisen <br>
-                    korkeakoulutusalueen periaatteiden mukaisesti.</p>
-                <a href="#">Kansainvälisyys ></a>
-                <p>Kansainvälisty kanssamme! Hyödynnä <br>
-                    laajaa kansainvälistä verkostoamme sekä<br>
-                    osaamistamme kilpailukykysi <br>
-                    kehittäjänä.</p>
-            
-              </div>
-        </div>
-    </div>
 </body>
 </html>

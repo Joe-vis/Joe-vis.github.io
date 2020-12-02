@@ -13,64 +13,110 @@ body{
     background-size: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-a{
-    width: max-content;
-    /* height:100px; */
-    color: var(--secondary-colur);
-    text-decoration: none;
-}
-a:hover{  
-    text-decoration: underline;
-}
-nav{ 
+/* Navbar container */
+.navbar {
     overflow: hidden;
     background-color: var(--primary-colur);
-    position: fixed; 
-    top: 0; 
-    width: 100%;    
-        
-}
-.nav{
-    color: #F9DEC9;
-    text-align: end ;
-    padding: 16px 25px 20px 0px; 
-  }
-  .Lankuake{
-    color: #F9DEC9;
-    text-align: end ;
-    padding: 16px 0px 20px 2px; 
-  }
-  #navi{ 
+    font-family: Arial;
     display: flex;
-    list-style: none;
     flex-direction: row;
     justify-content: flex-end;
-    padding-right:25px;
-    font-size: 20px;
+  }
+  
+  #lang{
+    padding: 14px 0px;
+    
 }
-p{
-    color: white;
-}
+  /* Links inside the navbar */
+  .navbar a {
+    order: 1;
+    font-size: 16px;
+    color: var(--secondary-colur);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  /* The dropdown container */
+  .dropdown {
+    float: left;
+    overflow: hidden;
+  }
 
-#drop:hover #drpdwnstuff{
-    display: block;
-}
-#drpdwnstuff{ 
+  
+  
+  /* Dropdown button */
+  .dropdown .dropbtn {
+    order:0 ;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: var(--secondary-colur);
+    padding: 14px 16px;
+    background-color: inherit;
+    font: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+  }
+  
+  /* Add a red background color to navbar links on hover */
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    text-decoration: underline;
+  }
+  
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
     position: absolute;
     background-color: var(--primary-colur);
-    left: 50%;
-    top: 63px;
-    overflow: hidden;
     width: fit-content;
-    display:none; 
-}
-.column{
+    left: 45%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Create three equal columns that floats next to each other */
+  .column {
+    float: left;
+    width: 400px;
     padding: 20px;
-    display: flex;
-    flex-direction: column;
+    background-color: var(--primary-colur);
+    height: fit-content;
+    color: white;
+
+  }
+  .column p{
+    font-size: 15px;
+    padding: 10px;
 }
+  
+  /* Style links inside the columns */
+  .column a {
+    float: none;
+    color: var(--secondary-colur);
+    padding: 5px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  /* Add a background color on hover */
+  .column a:hover {
+    background-color: #ddd;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 
-#drpdwnstuff a{ padding: 10px;}
-
-
-
+#lukko{
+    width: 15px;
+}
+#vali{padding-bottom: 35px;}
