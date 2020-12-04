@@ -1,122 +1,251 @@
-:root{
-    --primary-colur:#3a405a;
-    --secondary-colur:#F9DEC9
+:root {
+  --primary-colur:#3a405a;
+  --secondary-colur:#F9DEC9
 }
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin:0px;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-body{
-    background-image: url("../harj/kuvat/book-4.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+#body {
+  background-image: url("../harj/kuvat/book-4.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  
+  height: 975px;
 }
 /* Navbar container */
 .navbar {
-    overflow: hidden;
-    background-color: var(--primary-colur);
-    font-family: Arial;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-  }
-  
-  #lang{
-    padding: 14px 0px;
-    
-}
-  /* Links inside the navbar */
-  .navbar a {
-    order: 1;
-    font-size: 16px;
-    color: var(--secondary-colur);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  }
-  
-  /* The dropdown container */
-  .dropdown {
-    float: left;
-    overflow: hidden;
-  }
-
-  
-  
-  /* Dropdown button */
-  .dropdown .dropbtn {
-    order:0 ;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: var(--secondary-colur);
-    padding: 14px 16px;
-    background-color: inherit;
-    font: inherit; /* Important for vertical align on mobile phones */
-    margin: 0; /* Important for vertical align on mobile phones */
-  }
-  
-  /* Add a red background color to navbar links on hover */
-  .navbar a:hover, .dropdown:hover .dropbtn {
-    text-decoration: underline;
-  }
-  
-  /* Dropdown content (hidden by default) */
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: var(--primary-colur);
-    width: fit-content;
-    left: 45%;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  /* Create three equal columns that floats next to each other */
-  .column {
-    float: left;
-    width: 400px;
-    padding: 20px;
-    background-color: var(--primary-colur);
-    height: fit-content;
-    color: white;
-
-  }
-  .column p{
-    font-size: 15px;
-    padding: 10px;
+  overflow: hidden;
+  background-color: var(--primary-colur);
+  font-family: Arial;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0 100px;
 }
   
-  /* Style links inside the columns */
-  .column a {
-    float: none;
-    color: var(--secondary-colur);
-    padding: 5px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
+#lang{
+  padding: 14px 0px;
   
-  /* Add a background color on hover */
-  .column a:hover {
-    background-color: #ddd;
-  }
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+}
+/* Links inside the navbar */
+.navbar a {
+  order: 1;
+  font-size: 16px;
+  color: var(--secondary-colur);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
 
-#lukko{
-    width: 15px;
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  order:0 ;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: var(--secondary-colur);
+  padding: 14px 16px;
+  background-color: inherit;
+  font: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  text-decoration: underline;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--primary-colur);
+  width: fit-content;
+  left: 45%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 400px;
+  padding: 20px;
+  background-color: var(--primary-colur);
+  height: fit-content;
+  color: white;
+
+}
+.column p {
+  font-size: 15px;
+  padding: 10px;
+}
+
+/* Style links inside the columns */
+.column a {
+  float: none;
+  color: var(--secondary-colur);
+  padding: 5px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a background color on hover */
+.column a:hover {
+  background-color: #ddd;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#lukko {
+  width: 15px;
+}
+header {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  float: right;
+  padding: 60px;
+  font-size: 1.3em;
+}
+header h2 {
+  padding: 0 50px;
+}
+#logo1 {
+  padding: 50px;
+}
+#blue {
+  color: whitesmoke;
+  background-color: rgba(58, 64, 90, 0.9);
+  font-size: 1.6em;
+  padding: 50px;
+  top: 500px;
+  position: relative;
+}
+
+#kortit {
+  display: flex;
+  justify-content: space-around;
+  top: 10;
+  position: relative;
+  padding: 40px;
+  color: var(--primary-colur)
+}
+
+.kortti {
+  display: flex;
+  width: 500px;
+  height: 700px;
+  flex-direction: column;
+  text-align: center;
+  border: rgba(59, 58, 58, 0.233) solid;
+  border-radius: 2%;
+}
+.cardpic{
+  height: 300px ;
+}
+
+.nappi{
+  padding:10px;
+  background-color: white;
+  border-radius: 10px;
+  width: 80%;
+  padding: 20px;
+  align-self: center;
+  font-size: 1.2em;
+}
+.nappi:hover{
+  background-color: rgba(58, 64, 90, 0.9);
+}
+
+.teksti{
+  color: var(--primary-colur);
+  font-size: 20px;
+}
+
+.box{
+  flex-direction: column;
+  text-align: left;
+  padding: 15px;
+}
+
+#teksti1{
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
+
+#flip{
+ float: right;
 }
 #vali{padding-bottom: 35px;}
+footer{
+  background-color: var(--primary-colur);
+  color: var(--secondary-colur);
+}
+hr{
+  border: 1px rgba(0, 0, 0, 0.377) solid;
+  width: 1900px;
+  position: relative;
+  margin:auto
+}
+article{
+  margin: 100px;
+  color: var(--primary-colur)
+}
+table{
+  margin:auto;
+  padding: 100px;
+  font-size: 20px;
+}
+tr{
+  padding: 0px;
+}
+td{
+  padding: 10px 200px
+}
+#some img{
+position: relative;
+left: 900px;
+}
+#tiedot{
+  color:white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    height: auto;
+    float: none;
+  }
+  .dropdown-content {
+    left: 0%
+  }
+  .navbar a{
+    size:11px
+  }
+}
