@@ -205,7 +205,7 @@ footer{
 }
 hr{
   border: 1px rgba(0, 0, 0, 0.377) solid;
-  width: 1900px;
+  width: 1700px;
   position: relative;
   margin:auto
 }
@@ -248,4 +248,49 @@ left: 900px;
   .navbar a{
     size:11px
   }
-}
+  #kortit{
+    top: 800px;
+    flex-direction: column;
+    padding: 800px 0px;
+  }
+  #flip{
+    float: none;
+  }
+  hr{
+    display: none;
+  }
+  #body{
+    width:auto;
+    height:auto;
+  }
+  footer{
+    width: 100%;
+  }
+  #some img{
+    left: auto;
+  }
+  table{
+    padding: 0px;
+    font-size: 10px;
+  }
+  td{
+    padding: 10px 20px
+  }
+  header{
+    display: flex;
+  }
+  #teksti1{
+    flex-direction: column;
+    margin: 0px;
+  }
+ #tekstiflip{
+   flex-direction: column;
+ }
+  article{
+    margin: 0px;
+  }
+  #cardpic{width: 100%;}
+  .kortti{width: 100%;}
+  #kuva{width: 100%;}
+  #flip{width: 100%;}
+ }
