@@ -12,8 +12,8 @@
   background-image: url("../harj/kuvat/book-4.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
-  
-  height: 975px;
+  overflow: hidden;
+  height: 100vh;
 }
 /* Navbar container */
 .navbar {
@@ -154,7 +154,7 @@ header h2 {
 
 .kortti {
   display: flex;
-  width: 500px;
+  width: 800vw;
   height: 700px;
   flex-direction: column;
   text-align: center;
@@ -245,13 +245,24 @@ left: 900px;
   .dropdown-content {
     left: 0%
   }
-  .navbar a{
-    size:11px
+  header{
+    font-size: 2vw;
+    padding: 0px;
+  }
+  #logo1{
+    padding: 10px;
+    height: 70px;
+  }
+  #blue{
+    height: auto;
+    padding: 5px;
+    top: 24vh;
+    font-size: 1.3em;
   }
   #kortit{
-    top: 800px;
+    top: 0px;
     flex-direction: column;
-    padding: 800px 0px;
+    padding: 10px;
   }
   #flip{
     float: none;
@@ -261,7 +272,7 @@ left: 900px;
   }
   #body{
     width:auto;
-    height:auto;
+    height:100vh;
   }
   footer{
     width: 100%;
