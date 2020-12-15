@@ -153,13 +153,15 @@ header h2 {
 }
 
 .kortti {
+  background-color: white;
   display: flex;
-  width: 800vw;
+  width: 450px;
   height: 700px;
   flex-direction: column;
   text-align: center;
   border: rgba(59, 58, 58, 0.233) solid;
   border-radius: 2%;
+  margin: 1px;
 }
 .cardpic{
   height: 300px ;
@@ -211,7 +213,8 @@ hr{
 }
 article{
   margin: 100px;
-  color: var(--primary-colur)
+  color: var(--primary-colur);
+  background-color: white;
 }
 table{
   margin:auto;
@@ -237,6 +240,13 @@ left: 900px;
 }
 
 @media screen and (max-width: 600px) {
+  .navbar{
+    padding: 0px;
+    font-size: 0.9em;
+  }
+  body{
+    background-color: rgb(153, 178, 221 );
+  }
   .column {
     width: 100%;
     height: auto;
@@ -264,6 +274,7 @@ left: 900px;
     flex-direction: column;
     padding: 10px;
   }
+  .cardpic{height: 200px;}
   #flip{
     float: none;
   }
@@ -300,7 +311,7 @@ left: 900px;
   article{
     margin: 0px;
   }
-  #cardpic{width: 100%;}
+ 
   .kortti{width: 100%;}
   #kuva{width: 100%;}
   #flip{width: 100%;}
