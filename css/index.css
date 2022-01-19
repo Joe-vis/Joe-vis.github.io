@@ -1,10 +1,9 @@
 body{
-    background: #feffbf;
+    background: pink;
     font-size: 200%;
 }
 ul{
     align-self: center;
-    list-style: url("../harj/kuvat/bigpompken.gif");
 }
 h2{ 
     border-bottom: black solid 2px;
