@@ -6,6 +6,7 @@ ul{
 }
 h2{ 
     border-bottom: black solid 2px;
+    padding: 5px;
 }
 body{
     margin:0;
