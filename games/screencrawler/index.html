@@ -1,0 +1,275 @@
+
+<html>
+    <head>
+        <title>Joel Visakorpi | Screen Crawler</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <style>
+            #bouncer {
+            position: absolute;
+            background-color: red;
+            text-align:center;
+            padding-top:15px;
+            }
+
+            details {
+                background: rgb(34,34,34,0.9);
+                color: white;
+            }
+
+            #inputs {
+                background: rgb(44,44,44,0.7);
+            }
+
+            td {
+                padding-right: 50px;
+                padding-left: 5px;
+                color: white;
+            }
+            p {
+                padding-left: 5px;
+            }
+
+            #hidden {
+                visibility:hidden;
+            }
+            p{margin-bottom:2;}
+
+            .rainbow {animation: bgrainbow 5s alternate infinite}
+
+            .rainbowtxt{animation: bgrainbowtxt 5s alternate infinite;}
+
+            @keyframes bgrainbowtxt {
+                    0%   {color:#ff6666;}
+                    25%  {color:#ffbd55;}
+                    50%  {color:#ffff66;}
+                    75%  {color:#9de24f;}
+                    100% {color:#87cefa;}
+            }
+
+            @keyframes bgrainbow {
+                    0%   {background-color:#ff6666;}
+                    25%  {background-color:#ffbd55;}
+                    50%  {background-color:#ffff66;}
+                    75%  {background-color:#9de24f;}
+                    100% {background-color:#87cefa;}
+            }
+
+
+            .rainbowgrad {
+            background: linear-gradient(270deg, #ff4141, #ffcf55, #afff53, #53eeff, #a353ff, #ff53da);
+            background-size: 1200% 1200%;
+            animation: rainbowgradient 31s ease infinite;
+            }
+
+            @keyframes rainbowgradient {
+                0%{background-position:0% 50%}
+                50%{background-position:100% 50%}
+                100%{background-position:0% 50%}
+            }
+
+            .blackandwhite {
+                background: linear-gradient(270deg, #000000, #ffffff, #000000);
+                background-size: 600% 600%;
+                animation: blackandwhite 31s ease infinite;
+            }
+            @keyframes blackandwhite {
+                0%{background-position:0% 50%}
+                50%{background-position:100% 50%}
+                100%{background-position:0% 50%}
+            }
+
+        </style>
+    </head>
+    <body class="container" onkeypress="uniCharCode(event)">
+    <div id="hidden" >
+            <div id="inputs">
+                <input type="text" placeholder = "wanderer image/gif url" oninput="bouncerstyle()" id="url">
+                <input type="text" placeholder = "wanderer color" oninput="bouncerstyle()" id="sty">
+                <input type="text" placeholder = "wanderer text color" oninput="bouncerstyle()" id="color">
+                <input type="text" placeholder = "background color" oninput="bouncerstyle()" id="bgcolor">
+                <input type="Number" placeholder = "wanderer width | default:150" oninput="bouncerwidth()" id="width">
+                <input type="Number" placeholder = "wanderer height | default:50" oninput="bouncerheight()" id="height">
+                <input type="Number" placeholder = "wanderer top | default:15" oninput="bouncerstyle()" id="padding">
+                <input type="Number" placeholder = "Y offset | default: 0" oninput="yoffset()" id="yoffset">
+                <input type="text" placeholder = "specials" oninput="special()" id="special">
+                <input type="text" placeholder = "canvas specials" oninput="special()" id="bodyspecial">
+                <input type="text" placeholder = "wanderer text" oninput="bouncertxt()" id="txt">                
+            </div>
+
+            <details>
+                <summary>specials</summary>
+                <table>
+                    <tr>
+                        <td>rainbow:</td>
+                        <td>rainbow wanderer</td>
+                    </tr>
+                    <tr>
+                        <td>rainbowtxt: </td>
+                        <td>rainbow wanderer text</td>
+                    </tr>
+                    <tr>
+                        <td>blackandwhite: </td>
+                        <td>black and white gradient background</td>
+                    </tr>
+                    <tr>
+                        <td>rainbowgrad: </td>
+                        <td>rainbow gradient background</td>
+                    </tr>
+                    <tr>
+                        <td>rotate:</td>
+                        <td>make wanderer spin(not made for wanderer)</td>
+                    </tr>
+                </table>
+                <p>separate different specials with a space (coming soon...)<p>
+            </details>
+
+            <details>
+                <summary>keys</summary>
+                    <table>
+                        <tr>
+                            <td>Enter</td>
+                            <td>show/hide options</td>
+                        </tr>
+                        <tr>
+                            <td>+</td>
+                            <td>increase font size</td>
+                        </tr>
+                        <tr>
+                            <td>-</td>
+                            <td>decrease font size</td>
+                        </tr>
+                    </table>
+            </details>
+
+            <details>
+                <summary>things you should know</summary>
+                <ul>
+                    <li>you might need to change wanderers size to show your background image</li>
+                    <li>you need to update the url after changing any of the colors </li>
+                    <li>if you want to use text only then set wanderer top to 0</li>
+                    <li>some canvas specials require you to set the background color as none</li>
+                    <li>Y axis offset can be useful when using a big font size</li>
+                    <li>This project was originally made for my old website "funnymonkey.studio"</li>
+                <ul>
+            </details>
+            <a href="../../index.html">Back</a>
+    </div>
+            <div id="bouncer" style="width: 150px; height: 50px; font-size: 17px">press Enter</div>
+
+    </body>
+</html>
+<script>
+    var yd = null;
+    var xd = null;
+    trueYoffset = 0;
+    myMove();
+    function yoffset() {
+        trueYoffset = document.getElementById("yoffset").value;
+    }
+    function special() {
+        document.body.classList = "container " + document.getElementById("bodyspecial").value.replace(/,/gi, " ");
+        document.getElementById("bouncer").classList = document.getElementById("special").value.replace(/,/gi, " ");
+    }
+
+    function bouncerwidth() {
+        document.getElementById("bouncer").style.width = document.getElementById("width").value;
+    }
+
+    function bouncerheight() {
+        document.getElementById("bouncer").style.height = document.getElementById("height").value;
+    }
+
+    function bouncerstyle() {
+        document.getElementById("bouncer").style.paddingTop = document.getElementById("padding").value;
+        document.getElementById("bouncer").style.background = document.getElementById("sty").value;
+        document.getElementById("bouncer").style.color = document.getElementById("color").value;
+        document.body.style.background = document.getElementById("bgcolor").value;
+        document.getElementById("bouncer").style.backgroundImage = "url(" + document.getElementById('url').value + ")";
+
+    }
+
+    function bouncertxt() {
+        document.getElementById("bouncer").innerHTML = document.getElementById("txt").value;
+    }
+    
+    function myMove() {
+    var elem = document.getElementById("bouncer");   
+    var posY = 0;
+    var posX = 0;
+    var DirX = "right"
+    var DirY = "down"
+    var hidden;
+    var Yint = Math.floor(Math.random() * 15)
+    var Xint = Math.floor(Math.random() * 15)
+    clearInterval(yd);
+    clearInterval(xd);
+   
+    yd = setInterval(frameY, Yint);
+    xd = setInterval(frameX, Xint);
+
+    function frameY() {
+        switch(posY){
+            case window.innerHeight - document.getElementById("bouncer").style.height.replace(/px/gi, ""):
+                DirY = "up"
+            break;
+            case 0 - trueYoffset:
+                DirY = "down"
+            break;
+        }
+
+        switch(DirY){
+            case "up":
+                posY--; 
+                elem.style.top = posY + 'px';
+            break;
+            case "down": 
+                posY++; 
+                elem.style.top = posY + 'px'; 
+            break;
+        }
+        }
+
+    function frameX() {
+        switch(posX){
+            case window.innerWidth - document.getElementById("bouncer").style.width.replace(/px/gi, ""):
+                DirX = "left"
+            break;
+            case 0:
+                DirX = "right"
+            break;
+
+        }
+
+        switch(DirX){
+            case "left":
+                posX--; 
+                elem.style.left = posX + 'px';
+            break;
+            case "right": 
+                posX++; 
+                elem.style.left = posX + 'px'; 
+            break;
+        }
+        }
+
+    }
+    
+  function uniCharCode(event){
+            switch(event.key){
+                case "Enter":
+                    if(document.getElementById("hidden").style.visibility == "visible") 
+                        document.getElementById("hidden").style.visibility = "hidden";
+                    else
+                        document.getElementById("hidden").style.visibility = "visible";
+                break; 
+                case "+":
+                    var x = new Number(document.getElementById("bouncer").style.fontSize.replace(/px|"/gi, ""));
+                    document.getElementById("bouncer").style.fontSize = x + 1;
+                break;
+                case "-":   
+                    document.getElementById("bouncer").style.fontSize = document.getElementById("bouncer").style.fontSize.replace(/px/gi, "") - 1;
+                break;
+            }
+  }
+</script>
