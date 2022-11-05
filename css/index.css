@@ -50,10 +50,12 @@ body{
     align-items: center;
     min-width: fit-content;
     min-height: fit-content;
+    width: 500px;
     margin: 10px;
     box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
     text-shadow: 0 0 10px rgba(117, 117, 117, 0.4);
     background-color: rgb(241, 241, 241);
+    text-overflow: wrap;
 }
 
 .floaty-box{
@@ -138,4 +140,36 @@ a:active{
     min-width: fit-content;
     min-height: fit-content;
     flex-wrap: wrap;
+}
+.discord-invite {
+    background-color: #6577e6;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    transition: background-color 0.5s;
+    margin: 15px;
+}
+
+.discord-invite:hover {
+    background-color: #4a5dc8;
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.text-box{
+    width: 500px;
+    padding: 0px 5px;
+}
+
+.blender {
+  max-height: 400px;
+  width: auto;
+  margin: 20px;
+}
+
+.blender > img {
+  height: 100%;
+  max-height: 400px;
+  width: auto;
 }
