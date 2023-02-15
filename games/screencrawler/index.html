@@ -94,7 +94,8 @@
                 <input type="Number" placeholder = "Y offset | default: 0" oninput="yoffset()" id="yoffset">
                 <input type="text" placeholder = "specials" oninput="special()" id="special">
                 <input type="text" placeholder = "canvas specials" oninput="special()" id="bodyspecial">
-                <input type="text" placeholder = "wanderer text" oninput="bouncertxt()" id="txt">                
+                <input type="text" placeholder = "wanderer text" oninput="bouncertxt()" id="txt">
+                <input type="Number" placeholder = "Wanderer scale" oninput="bouncerstyle" id="scale">
             </div>
 
             <details>
@@ -181,11 +182,14 @@
     }
 
     function bouncerstyle() {
+        var bouncer = document.getElementById("bouncer");
         document.getElementById("bouncer").style.paddingTop = document.getElementById("padding").value;
         document.getElementById("bouncer").style.background = document.getElementById("sty").value;
         document.getElementById("bouncer").style.color = document.getElementById("color").value;
         document.body.style.background = document.getElementById("bgcolor").value;
         document.getElementById("bouncer").style.backgroundImage = "url(" + document.getElementById('url').value + ")";
+        bouncer.style.transform = `scale(${document.getElementById('scale').value})`;
+        
 
     }
 
