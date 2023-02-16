@@ -95,7 +95,7 @@
                 <input type="text" placeholder = "specials" oninput="special()" id="special">
                 <input type="text" placeholder = "canvas specials" oninput="special()" id="bodyspecial">
                 <input type="text" placeholder = "wanderer text" oninput="bouncertxt()" id="txt">
-                <input type="Number" placeholder = "Wanderer scale" oninput="bouncerstyle()" id="scale">
+                <input type="Number" placeholder = "Wanderer scale" oninput="bouncerstyle()" id="scale" value="1">
             </div>
 
             <details>
@@ -174,11 +174,11 @@
     }
 
     function bouncerwidth() {
-        document.getElementById("bouncer").style.width = document.getElementById("width").value * document.getElementById('scale').value;
+        document.getElementById("bouncer").style.width = document.getElementById("width").value;
     }
 
     function bouncerheight() {
-        document.getElementById("bouncer").style.height = document.getElementById("height").value * document.getElementById('scale').value;
+        document.getElementById("bouncer").style.height = document.getElementById("height").value;
     }
 
     function bouncerstyle() {
@@ -214,7 +214,7 @@
 
     function frameY() {
         switch(posY){
-            case window.innerHeight - document.getElementById("bouncer").style.height.replace(/px/gi, ""):
+            case window.innerHeight - document.getElementById("bouncer").style.height.replace(/px/gi, "") * document.getElementById('scale').value:
                 DirY = "up"
             break;
             case 0 - trueYoffset:
@@ -236,7 +236,7 @@
 
     function frameX() {
         switch(posX){
-            case window.innerWidth - document.getElementById("bouncer").style.width.replace(/px/gi, ""):
+            case window.innerWidth - document.getElementById("bouncer").style.width.replace(/px/gi, "")  * document.getElementById('scale').value:
                 DirX = "left"
             break;
             case 0:
