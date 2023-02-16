@@ -95,7 +95,7 @@
                 <input type="text" placeholder = "specials" oninput="special()" id="special">
                 <input type="text" placeholder = "canvas specials" oninput="special()" id="bodyspecial">
                 <input type="text" placeholder = "wanderer text" oninput="bouncertxt()" id="txt">
-                <input type="Number" placeholder = "Wanderer scale" oninput="bouncerstyle" id="scale">
+                <input type="Number" placeholder = "Wanderer scale" oninput="bouncerstyle()" id="scale">
             </div>
 
             <details>
@@ -174,11 +174,11 @@
     }
 
     function bouncerwidth() {
-        document.getElementById("bouncer").style.width = document.getElementById("width").value;
+        document.getElementById("bouncer").style.width = document.getElementById("width").value * document.getElementById('scale').value;
     }
 
     function bouncerheight() {
-        document.getElementById("bouncer").style.height = document.getElementById("height").value;
+        document.getElementById("bouncer").style.height = document.getElementById("height").value * document.getElementById('scale').value;
     }
 
     function bouncerstyle() {
