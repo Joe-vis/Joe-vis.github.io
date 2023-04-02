@@ -62,7 +62,7 @@
             <input type="number" id="weapon-cost" name="Cost" step="10" placeholder="100" min="0">
             <div>
                 <input type="submit" value="Cancel" onclick="SetVisibility('weapon-creation', 'hidden')" style="background-color: #c92020;">
-                <input type="submit" value="Create" onclick="weaponFormSubmit(event)">
+                <input type="submit" value="Create" onclick="weaponFormSubmit(event), SetVisibility('weapon-creation', 'hidden')">
             </div>
         </form>
     </div>
