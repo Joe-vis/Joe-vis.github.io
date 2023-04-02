@@ -702,5 +702,10 @@ body {
         height: 50px;
     }
 
+    #blobs {
+        flex-direction: column;
+        justify-content: center;
+    }
+
 
 }
