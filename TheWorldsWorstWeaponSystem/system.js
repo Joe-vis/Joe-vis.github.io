@@ -25,6 +25,42 @@ var levelRequirement = [
 ];
 var currentExp = 0;
 var level = 1;
+var Weapons = [];
+
+const WeaponPricing = (price, health) => {
+    switch (health) {
+        case 0:
+            return 0;
+            break;
+        case 1:
+            return Math.ceil(price * 0.75);
+            break;
+        default:
+        case 2:
+            return price;
+            break;
+    }
+}
+
+function Start() {
+    currentExp = Number(localStorage.getItem("currentExp")) || 0;
+    level = Number(localStorage.getItem("level")) || 1;
+    Weapons = JSON.parse(localStorage.getItem("weapons")) || [];
+    Weapons.forEach(weapon => {
+        CreateCard(weapon);
+    });
+    UpdateEXP();
+} Start();
+
+function SaveWeapons() {
+    localStorage.setItem("weapons", JSON.stringify(Weapons));
+    console.log(localStorage.getItem("weapons"));
+}
+
+function ClearSave() {
+    localStorage.clear();
+    location.reload();
+}
 
 // ====== EXP System ======
 function AddEXP(amount = 100) {
@@ -48,9 +84,11 @@ function LevelUp() {
     console.log(`Current Level: ${level}`);
     console.log(`Current EXP: ${currentExp}`);
     UpdateEXP();
+    localStorage.setItem("level", level);
 }
 
 function UpdateEXP() {
+    localStorage.setItem("currentExp", currentExp);
     document.getElementById(
         "expSlot"
     ).innerHTML = `Level: ${level} EXP: ${currentExp} / ${levelRequirement[level]}`;
@@ -69,6 +107,7 @@ function UpdateEXP() {
 function ChangeWeaponAmount(weapon, element, amount) {
     weapon.amount += amount;
     element.innerHTML = `Type: ${weapon.type} &nbsp; | &nbsp; Amount: ${weapon.amount}`;
+    SaveWeapons();
 }
 
 function ChangeWeaponHealth(weapon, element, heartIndex) {
@@ -89,6 +128,7 @@ function ChangeWeaponHealth(weapon, element, heartIndex) {
     });
     weapon.health = tempHealth;
     ShowDiscount(weapon, element.parentElement.parentElement.parentElement.querySelector(".blob-cost-reduction"));
+    SaveWeapons();
 }
 
 function ShowDiscount(weapon, element) {
@@ -104,22 +144,9 @@ function VanishWeapon(weapon, element) {
     AddEXP(WeaponPricing(weapon.cost, weapon.health));
     Weapons.splice(Weapons.indexOf(weapon), 1);
     element.remove();
+    SaveWeapons();
 }
 
-let WeaponPricing = (price, health) => {
-    switch (health) {
-        case 0:
-            return 0;
-            break;
-        case 1:
-            return Math.ceil(price * 0.75);
-            break;
-        default:
-        case 2:
-            return price;
-            break;
-    }
-}
 
 // ====== Blob Creation ======
 function weaponFormSubmit(ev) {
@@ -133,7 +160,6 @@ function weaponFormSubmit(ev) {
     CreateWeapon(name, damage, type, cost);
 }
 
-var Weapons = [];
 function CreateWeapon(name, damage = 0, type = "item", cost = 0, amount = 1, health = 2) {
     if (currentExp < cost) { 
         Message("Not enough EXP", "error");
@@ -151,6 +177,7 @@ function CreateWeapon(name, damage = 0, type = "item", cost = 0, amount = 1, hea
     Weapons.push(weapon);
     CreateCard(weapon);
     UpdateEXP();
+    SaveWeapons();
 }
 
 function CreateCard(weapon) {
@@ -226,6 +253,10 @@ function LoadSaveFileString(saveFileString) {
     });
     UpdateEXP();
     Message("Save File Loaded", "success");
+
+    SaveWeapons();
+    localStorage.setItem("currentExp", currentExp);
+    localStorage.setItem("level", level);
 }
 
 function ClearCurrentProfile() {
