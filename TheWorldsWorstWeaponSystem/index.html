@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="MainStyle.css" />
+    <title>Shitty Weapon System</title>
+</head>
+<body>
+    <div id="head-info">
+        <div>
+            <div id="exp-system" class="level-up" onclick="LevelUp()">
+                <p id="expSlot"></p>
+                <progress id="level-progress" value="0" max="300">???</progress>
+            </div>
+
+            <button onclick="AddEXP(10)">+10</button>
+            <button onclick="AddEXP(100)">+100</button>
+
+            <input type="number" id="exp-input" placeholder="EXP" min="0">
+            <button id="addExp" onclick="AddEXP(document.getElementById('exp-input').value)">add EXP</button>
+            <button onclick="RemoveEXP(document.getElementById('exp-input').value)">remove EXP</button>
+
+            <button id="CreateWeapon" onclick='SetVisibility("weapon-creation", "visible")'>
+                new blob
+            </button>
+        </div>
+
+        <div id="save-buttons">
+            <button onclick="CreateSaveFile()">
+                Save
+            </button>
+            <button onclick="SetVisibility('save-system', 'visible')">
+                Load
+            </button>
+        </div>
+    </div>
+    <div id="message" style="visibility: hidden;"></div>
+    <div id="save-system" style="visibility: hidden;">
+        <h1>Upload save file</h1>
+        <div class="drop-container" id="drop-area" >
+                <span class="drop-title">Drop files here</span>
+                or
+                <input type="file" id="save-file" accept=".json" />
+        </div>
+        <div>
+            <button onclick="SetVisibility('save-system','hidden')">Cancel</button>
+            <button onclick="LoadSaveFile(), SetVisibility('save-system','hidden')">Load from file</button>
+        </div>
+    </div>
+
+    <div id="weapon-creation" style="visibility: hidden;">
+        <form>
+            <label for="weapon-name">Name</label>
+            <input type="text" id="weapon-name" name="name" placeholder="basic sword">
+            <label for="weapon-damage">Damage</label>
+            <input type="text" id="weapon-damage" name="Damage" placeholder="1d8">
+            <label for="weapon-type">Type</label>
+            <input type="text" id="weapon-type" name="type" placeholder="melee">
+            <label for="weapon-cost">Cost</label>
+            <input type="number" id="weapon-cost" name="Cost" step="10" placeholder="100" min="0">
+            <div>
+                <input type="submit" value="Cancel" onclick="SetVisibility('weapon-creation', 'hidden')" style="background-color: #c92020;">
+                <input type="submit" value="Create" onclick="weaponFormSubmit(event)">
+            </div>
+        </form>
+    </div>
+
+    <div id="blobs"></div>
+    <template>
+        <div class="card">
+            <div class="content">
+                <div class="back">
+                    <div class="back-content">
+                        <strong class="blob-name">Hover Me</strong>
+                        <p class="blob-cost"></p>
+                        <small class="blob-cost-reduction"></small>
+                    </div>
+                </div>
+                <div class="front">
+                    <div class="img">
+                        <div class="circle"></div>
+                        <div class="circle" id="right"></div>
+                        <div class="circle" id="bottom"></div>
+                    </div>
+
+                    <div class="front-content">
+                        <small class="badge">1d4</small>
+                        <button class="vanish-button"><p>Vanish</p></button>
+                        <div class="hearts">
+                            <label class="heart-container">
+                                <input type="checkbox">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path>
+                                </svg>
+                            </label>
+                            <label class="heart-container">
+                                <input type="checkbox">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M16.4,4C14.6,4,13,4.9,12,6.3C11,4.9,9.4,4,7.6,4C4.5,4,2,6.5,2,9.6C2,14,12,22,12,22s10-8,10-12.4C22,6.5,19.5,4,16.4,4z"></path>
+                                </svg>
+                            </label>
+                        </div>
+
+
+                        <div class="description">
+
+                            <div class="title">
+                                <p class="title">
+                                    <strong class="blob-name">Spaguetti Bolognese</strong>
+                                </p>
+
+                                <svg fill-rule="nonzero" height="15px" width="15px" viewBox="0,0,256,256"
+                                    xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                                    <g style="mix-blend-mode: normal" text-anchor="none" font-size="none"
+                                        font-weight="none" font-family="none" stroke-dashoffset="0" stroke-dasharray=""
+                                        stroke-miterlimit="10" stroke-linejoin="miter" stroke-linecap="butt"
+                                        stroke-width="1" stroke="none" fill-rule="nonzero" fill="#20c997">
+                                        <g transform="scale(8,8)">
+                                            <path d="M25,27l-9,-6.75l-9,6.75v-23h18z"></path>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </div>
+                            <p class="card-footer">Melee &nbsp; | &nbsp; 3 </p>
+                            <div class="amount-buttons">
+                                <button class="amount-button" id="decrease">-</button>
+                                | Amount |
+                                <button class="amount-button" id="increase">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+</body>
+
+</html>
+
+<script src="system.js"></script>
+
+
+
