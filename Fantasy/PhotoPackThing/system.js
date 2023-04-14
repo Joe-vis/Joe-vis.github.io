@@ -1,6 +1,3 @@
-var Packs = []
-
-
 function CreatePacks() 
 {
     var temp = document.getElementsByTagName("template")[0];
