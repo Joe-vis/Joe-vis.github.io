@@ -3,31 +3,28 @@ var Packs = []
 
 function CreatePacks() 
 {
+    var temp = document.getElementsByTagName("template")[0];
     fetch('https://raw.githubusercontent.com/Joe-vis/Joe-vis.github.io/master/Fantasy/PhotoPackThing/Data/packs.json')
         .then((response) => response.json())
-        .then((json) => console.log(json));
+        .then((json) =>
+            json.forEach(pack => {
+                var clone = temp.content.cloneNode(true);
+                clone.querySelector(".photo-pack-title").innerHTML = pack.Name;
 
-    var temp = document.getElementsByTagName("template")[0];
-    console.log("temp");
-    Packs.forEach(pack => {
-        console.log(pack.Name);
-        var clone = temp.content.cloneNode(true);
-        clone.querySelector(".photo-pack-title").innerHTML = pack.Name;
-        var photoPack = clone.querySelector(".photo-pack");
-        photoPack.addEventListener("click", function ClickEvent(){
-            if(AskForPassword(pack.Password)) {
-                OpenPack(pack, photoPack)
-                photoPack.removeEventListener("click", ClickEvent);
-            } else {
-                alert("Wrong password");
-            }
+                var photoPack = clone.querySelector(".photo-pack");
+                photoPack.addEventListener("click", function ClickEvent(){
+                    if(AskForPassword(pack.Password)) {
+                        OpenPack(pack, photoPack)
+                        photoPack.removeEventListener("click", ClickEvent);
+                    } else {
+                        alert("Wrong password");
+                    }
 
-        });
+                }); 
+                document.getElementById("photo-pack-container").appendChild(clone);
+            })
+    );
 
-        document.getElementById("photo-pack-container").appendChild(clone);
-        
-
-    });
 } CreatePacks();
 
 const AskForPassword = (password) => {
