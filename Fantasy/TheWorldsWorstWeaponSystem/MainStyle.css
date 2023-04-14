@@ -1,0 +1,685 @@
+
+
+
+
+.weapon {
+    border: 5px solid;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px;
+    width: fit-content;
+}
+
+#head-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--header-background-color);
+    color: white;
+    border-bottom: 1px solid #242424;
+
+}
+
+#head-info>* {
+    margin-right: 20px;
+
+}
+
+#head-info button {
+    background-color: var(--main-button-color);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#head-info button:hover {
+    background-color: #1daa85;
+}
+
+#head-info input[type="number"] {
+    width: 150px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: var(--header-background-color);
+    border: 1px solid #242424;
+}
+
+#head-info>div {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+#head-info>div>* {
+    margin-right: 20px;
+}
+
+#expSlot {
+    font-size: 20px;
+}
+
+#exp-system {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #1d1d1d;
+    color: white;
+    border-bottom: 1px solid #4d4d4d;
+    width: 300px;
+
+    transition: all 0.2s ease-in-out;
+    border-radius: 5px;
+}
+
+
+.level-up:hover {
+    background-color: #242424;
+    filter: brightness(1);
+    /* border-radius: 15px; */
+
+    transition: all 0.5s ease-in-out;
+
+}
+
+.level-up:hover::after {
+    content: "Click to level up";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #242424;
+    /* border-radius: 15px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+    transition: all 0.5s ease-in-out;
+    border-radius: 5px;
+
+}
+
+
+
+#level-progress::-webkit-progress-bar {
+    -webkit-appearance: none;
+    background-color: #2e2e2e;
+    border-radius: 5px;
+}
+
+#level-progress::-webkit-progress-value {
+    -webkit-appearance: none;
+    background-color: #20c997;
+    border-radius: 5px;
+}
+
+#level-progress {
+    width: 100%;
+    height: 20px;
+    border-radius: 5px;
+}
+/* Message system */
+
+#message {
+    position: fixed;
+    padding: 15px;
+    border-radius: 10px;
+    left: 20px;
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    text-align: center;
+    font-size: large;
+    font-weight: bold;
+
+    background-color: var(--message-color);
+
+    box-shadow: var(--message-color) 0 0 5px 5px, rgba(8, 8, 8, 0.185) 0 0 10px 5px;
+
+
+}
+
+/* Save system */
+
+#save-system {
+    position: fixed;
+    background-color: #e6e6e6;
+    width: 400px;
+    height: 300px;
+    border-radius: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    box-shadow: 0 0 10px 5px #000000;
+    box-shadow: inset 0 0 10px 5px #c5c5c5;
+}
+
+#save-system>h1 {
+    border-bottom: 2px solid #7e7e7e;
+    border-radius: 5px;
+}
+
+#save-system>* {
+    margin: 10px;
+}
+
+#save-system button {
+    background-color: var(--main-button-color);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#save-system button:hover {
+    background-color: var(--main-button-color-hover);
+}
+
+#save-system button:nth-child(1) {
+    background-color: var(--secondary-button-color);
+}
+
+.drop-container {
+    background-color: #e6e6e6;
+    position: relative;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 2.1875rem;
+    border-radius: 10px;
+    border: 2px dashed rgb(171, 202, 255);
+    color: #444;
+    cursor: pointer;
+    transition: background .2s ease-in-out, border .2s ease-in-out;
+}
+
+.drop-container:hover {
+    background: rgba(0, 140, 255, 0.164);
+    border-color: rgba(17, 17, 17, 0.616);
+}
+
+.drop-container:hover .drop-title {
+    color: #222;
+}
+
+.highlight {
+    background: rgba(0, 140, 255, 0.164);
+    border-color: rgba(17, 17, 17, 0.616);
+}
+
+.drop-title {
+    color: #444;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    transition: color .2s ease-in-out;
+}
+
+#save-file {
+    width: 300px;
+    max-width: 100%;
+    color: #444;
+    padding: 2px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid rgba(8, 8, 8, 0.288);
+}
+
+#save-file::file-selector-button {
+    margin-right: 20px;
+    border: none;
+    background: #084cdf;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease-in-out;
+}
+
+#save-file::file-selector-button:hover {
+    background: #0d45a5;
+}
+
+/* Blob Creation */
+#weapon-creation {
+    position: fixed;
+    background-color: #e6e6e6;
+    width: 400px;
+    height: auto;
+    border-radius: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   
+    z-index: 1;
+    box-shadow: 0 0 10px 5px #000000;
+    box-shadow: inset 0 0 10px 5px #c5c5c5;
+}
+
+#weapon-creation > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+#weapon-creation>h1 {
+    border-bottom: 2px solid #7e7e7e;
+    border-radius: 5px;
+}
+
+#weapon-creation input {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #7e7e7e;
+}
+ 
+#weapon-creation input[type="number"] {
+    width: 150px;
+}
+
+
+#weapon-creation input[type="text"] {
+    width: 200px;
+}
+
+#weapon-creation input[type="submit"] {
+    background-color: #20c997;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#blobs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+
+
+/* Vanish Button */
+.vanish-button {
+    border: none;
+    width: calc(140px * 1.25);
+    height: calc(50px * 1.25);
+    color: #fff;
+    z-index: 1;
+    display: flex;
+    background: #000;
+    position: relative;
+    border-radius: 15px;
+
+    align-self: center;
+}
+
+.vanish-button>p {
+    margin: auto;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    z-index: 1;
+    display: flex;
+    position: relative;
+}
+
+.vanish-button:hover {
+    background-color: #555555;
+    box-shadow: 0px 0px 10px 1px #000000ee;
+
+}
+
+/* amount buttons */
+
+.amount-button {
+    border: none;
+    width: 25px;
+    height: 25px;
+    color: #fff;
+    background: #000;
+    border-radius: 5px;
+
+}
+
+.amount-button:hover {
+    background-color: #555555;
+    box-shadow: 0px 0px 10px 1px #000000ee;
+
+}
+
+.amount-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    background-color: var(--header-background-color);
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.amount-buttons #increase {
+    background-color: var(--main-button-color);
+}
+
+.amount-buttons #decrease {
+    background-color: var(--secondary-button-color);
+}
+
+/* Heart */
+
+.hearts {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    scale: 1.5;
+    align-items: center;
+  }
+
+.heart-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  .heart-container {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    width: min-content;
+  }
+  
+  .heart-container svg {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 50px;
+    width: 50px;
+    transition: all 0.3s;
+    fill: #666;
+  }
+  
+  .heart-container svg:hover {
+    transform: scale(1.1);
+  }
+  
+  .heart-container input:checked ~ svg {
+    fill: #E3474F;
+  }
+  
+
+
+
+
+/* Blob Cards */
+.card {
+    overflow: visible;
+    width: calc(190px * 1.25);
+    height: calc(254px * 1.25);
+    margin: 10px;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 300ms;
+    box-shadow: 0px 0px 10px 1px #000000ee;
+    border-radius: 5px;
+}
+
+.front,
+.back {
+    background-color: #151515;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.back {
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.back::before {
+    position: absolute;
+    content: " ";
+    display: block;
+    width: 160px;
+    height: 160%;
+    background: linear-gradient(90deg,
+            transparent,
+            #ff9966,
+            #ff9966,
+            #ff9966,
+            #ff9966,
+            transparent);
+    animation: rotation_481 5000ms infinite linear;
+}
+
+.blob-cost-reduction {
+    color: #919191;
+    font-size: small;
+    margin-top: -20px;
+}
+
+.back-content {
+    position: absolute;
+    width: 99%;
+    height: 99%;
+    background-color: #151515;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.back-content > * {
+    text-align: center;
+    font-size: larger;
+}
+
+.back-content > strong {
+    font-size: x-large;
+}
+
+.back-content > p {
+    font-size: large;
+}
+
+.back-content > small {
+    font-size: small;
+}
+
+.card:hover .content {
+    transform: rotateY(180deg);
+}
+
+@keyframes rotation_481 {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    0% {
+        transform: rotateZ(360deg);
+    }
+}
+
+.front {
+    transform: rotateY(180deg);
+    color: white;
+}
+
+.front .front-content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.front-content .badge {
+    background-color: #00000055;
+    padding: 4px 15px;
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+    width: fit-content;
+}
+
+.description {
+    box-shadow: 0px 0px 10px 5px #00000088;
+    width: 100%;
+    padding: 13px;
+    background-color: #00000099;
+    backdrop-filter: blur(5px);
+    border-radius: 5px;
+}
+
+.title {
+    font-size: 15px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title p {
+    width: 50%;
+}
+
+.card-footer {
+    color: #ffffff88;
+    margin-top: 5px;
+    font-size: 11px;
+}
+
+.front .img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.circle {
+    width: calc(90px * 1.25);
+    height: calc(90px * 1.25);
+    border-radius: 50%;
+    background-color: #ffbb66;
+    position: relative;
+    filter: blur(15px);
+    animation: floating 2600ms infinite linear;
+}
+
+#bottom {
+    background-color: #ff8866;
+    left: calc(50px * 1.25);
+    top: 0px;
+    width: calc(150px * 1.25);
+    height: calc(150px * 1.25);
+    animation-delay: -800ms;
+}
+
+#right {
+    background-color: #ff2233;
+    left: calc(160px * 1.25);
+    top: calc(-80px * 1.25);
+    width: calc(30px * 1.25);
+    height: calc(30px * 1.25);
+    animation-delay: -1800ms;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/*  For phones */
+
+@media only screen and (max-width: 600px) {
+    #head-info {
+        flex-direction: column;
+    }
+
+    #head-info>div {
+        margin: 10px;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #head-info>div>* {
+        margin: 10px;
+    }
+
+    #head-info>div>button {
+        width: 100%;
+        height: 50px;
+    }
+
+    #blobs {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+}

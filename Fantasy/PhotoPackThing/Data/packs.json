@@ -1,0 +1,32 @@
+[
+    {
+        "Name": "Garbage",
+        "Description": "U eat garbage",
+        "Password": "UwU",
+        "Photos": [
+            {
+                "Name": "Photo 1",
+                "Description": "This is the first photo",
+                "Path": "Data/images/A7NcdfzPbVKlAAAAAElFTkSuQmCC.png"
+            },
+            {
+                "Name": "Photo 2",
+                "Description": "This is the second photo",
+                "Path": "Data/images/imag23e.png"
+            }
+        ]
+    },
+    {
+        "Name": "Pack 2",
+        "Description": "This is the second pack",
+        "Password": "1234",
+        "Photos": [
+            {
+                "Name": "Photo 3",
+                "Description": "This is the third photo",
+                "Path": "Data/images/image (3).png"
+            }
+        ]
+    }
+
+]

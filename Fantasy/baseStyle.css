@@ -1,0 +1,31 @@
+:root {
+    --header-background-color: #1d1d1d;
+    --main-button-color: #20c997;
+    --main-button-color-hover: #1daa85;
+    --secondary-button-color: #c92020;
+    --message-color: #ffffff;
+
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #1d1d1d;
+    background-image: linear-gradient(45deg, #242424 0%, #1d1d1d 100%);
+    background-image: -moz-linear-gradient(45deg, #242424 0%, #1d1d1d 100%);
+    background-image: -webkit-linear-gradient(45deg, #242424 0%, #1d1d1d 100%);
+
+    background-attachment: fixed;
+
+    height: 100%;
+    margin: 0;
+}
