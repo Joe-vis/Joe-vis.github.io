@@ -1,0 +1,26 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 5px;
+    font-size: 1.25rem;
+    > div {
+        display: flex;
+        flex-direction: column;
+        margin: 5px;
+        border-left: #c1c1c1 4px solid;
+
+        > a {
+            font-size: 2rem;
+
+        }
+
+        > p {
+            background-color: #c1c1c1;
+            margin: 0px;
+            font-weight: lighter;
+        }
+    }
+}

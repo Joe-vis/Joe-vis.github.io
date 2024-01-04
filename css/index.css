@@ -1,25 +1,84 @@
-*{
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
+
 body{
-    background: white;
+    background-color: black;
+    background: url(../images/Site/pinboard-dark.jpg);
+    background-repeat: repeat;
+    background-size: 500px;
+    color: black;
     margin:0;
 }
+
 .App-header {
-  background-color: #282c34;
-  min-height: 10vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 5rem;
-  padding-bottom: 15px;
-  box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    background-color: #282c34;
+    min-height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+    font-size: 1.5rem;
+    color: #dbdcdf;
+
+  > h1{
+    color: #dbdcdf;
+    margin: 0;
+    font-weight: 300;
+    
+  }
+
+  .divider {
+    border-bottom: #616161 3px solid;
+    width: 20%;
+    border-radius: 20px;
+    min-width: 200px;
+
+  }
+
+  > h2{
+    color: #babbbd;
+    margin: 0;
+    font-weight: 200;
+  }
 }
+
+nav{
+    background-color: #1e2127;
+    padding-left: 20px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+
+  > div{
+    height: 80%;
+    width: 2px;
+    margin: 0px 10px 0px 10px;
+    background-color: #dbdcdf;
+    border-radius: 20px;
+  }
+}
+
+nav a{
+    color: #dbdcdf;
+    padding: 0;
+    transition: all .5s;
+    height: 100%;
+}
+nav a:hover{
+    /* color: #282c34; */
+    color: #dbdcdf;
+
+    box-shadow: none;
+    border-radius: 0;
+    background-color: #282c34;
+}
+
 .back-button{
     position: absolute;
-    top: 20px;
     left: 0;
     margin: 10px;
     padding: 10px;
@@ -29,19 +88,119 @@ body{
     font-size: 2rem;
     cursor: pointer;
     outline: none;
+    transition: all .3s;
 }
+
 .back-button:hover{
     color: #020202;
     background-color: salmon;
 }
 
-.window{
+.about {
+    background-color: rgb(204, 207, 209);
+    padding: 0 10px 0 10px;
+    border-radius: 0px 0px 15px 15px;
+    border-bottom: #a3a3a3 10px solid;
+}
+
+/* Main */
+
+.container{
+    background-color: #282c34;
+    width: 80vw;
+    max-width: 800px;
+    height: 50vh;
+    border-radius: 20px;
+    margin: 20px;
+    display: flex;
+    -webkit-box-shadow: 18px 13px 26px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 18px 13px 26px 0px rgba(0,0,0,0.75);
+    box-shadow: 18px 13px 26px 0px rgba(0,0,0,0.75);
+}
+
+#main-window{
+    background: white;
+    width: auto;
+    margin: 20px;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
+    flex-grow: 1;
+    -webkit-box-shadow: 11px 11px 26px -18px rgba(0,0,0,0.75);
+    -moz-box-shadow: 11px 11px 26px -18px rgba(0,0,0,0.75);
+    box-shadow: 11px 11px 26px -18px rgba(0,0,0,0.75);
+}
 
+.window{
+    display: none;
+    flex-direction: column;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-decoration: underline;
+}
+
+.active{ display: flex;}
+
+.tab-selectors{
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+}
+
+.tab-selectors h2{
+    /* width: 100%; */
+    /* height: 100%; */
+    /* margin: 5px 20px 5px 20px; */
+    padding: 5px 20px 5px 20px;
+    margin: 0;
+    transition: all .3s;
+    position: relative;
+
+}
+.tab-selectors h2::after {
+    content: '';
+    position: absolute;
+    border-top: 20px solid white;
+    border-left: 20px solid white;
+    width: 0;
+    /* margin-right: -20px; */
+    /* margin-bottom: -5px; */
+    top: 0;
+    transition: all .3s;
+}
+
+.tab-selectors h2:hover{
+    background-color: rgb(245, 238, 227);
+}
+.tab-selectors h2:hover::after{
+    border-left: 20px solid rgb(245, 238, 227);
+
+}
+
+.selected{
+    background-color: wheat;
+}
+
+h2.selected::after{
+    border-left: 20px solid wheat;
+
+}
+
+.tabs {
+    background-color: wheat;
+    flex-grow: 1;
+}
+
+.tabs a {
+    margin-top: 5px;
+    padding-left: 10px;
+    transition: all 500ms;
+}
+
+.tabs a:hover {
+    margin-top: 5px;
+    padding-left: 10px;
+    border-bottom: #020202 1px solid;
 }
 
 .floaty-img-box{
@@ -88,12 +247,12 @@ body{
     color: white;
     
 }
+
 .App-body{
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: 5px;
     flex-wrap: wrap;
 }
 
@@ -106,9 +265,7 @@ a{
 
 a:hover{
     color: #282c34;
-    background: rgb(216, 215, 215);
-    border-radius: 5px;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5) inset;
+    background: rgb(255, 253, 222);
 }
 
 a:active{
@@ -147,7 +304,9 @@ a:active{
     border-radius: 5px;
     padding: 5px 10px;
     transition: background-color 0.5s;
-    margin: 15px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
 }
 
 .discord-invite:hover {
