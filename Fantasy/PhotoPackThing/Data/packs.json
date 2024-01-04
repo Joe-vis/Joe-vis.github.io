@@ -5,11 +5,6 @@
         "Password": "UwU",
         "Photos": [
             {
-                "Name": "Photo 1",
-                "Description": "This is the first photo",
-                "Path": "Data/images/A7NcdfzPbVKlAAAAAElFTkSuQmCC.png"
-            },
-            {
                 "Name": "Photo 2",
                 "Description": "This is the second photo",
                 "Path": "Data/images/imag23e.png"
