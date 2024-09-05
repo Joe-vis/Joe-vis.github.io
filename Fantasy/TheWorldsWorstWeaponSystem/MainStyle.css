@@ -501,7 +501,7 @@
     display: block;
     width: 160px;
     height: 160%;
-    background: var(--item-gradient)
+    background: var(--item-gradient);
     animation: rotation_481 5000ms infinite linear;
 }
 
