@@ -1,4 +1,12 @@
-
+:root {
+    --item-gradient: linear-gradient(90deg,
+            transparent,
+            #ff9966,
+            #ff9966,
+            #ff9966,
+            #ff9966,
+            transparent);
+}
 
 
 
@@ -493,13 +501,7 @@
     display: block;
     width: 160px;
     height: 160%;
-    background: linear-gradient(90deg,
-            transparent,
-            #ff9966,
-            #ff9966,
-            #ff9966,
-            #ff9966,
-            transparent);
+    background: var(--item-gradient)
     animation: rotation_481 5000ms infinite linear;
 }
 
