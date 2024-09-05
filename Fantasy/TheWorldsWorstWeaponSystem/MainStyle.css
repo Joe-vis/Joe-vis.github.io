@@ -6,6 +6,13 @@
             #ff9966,
             #ff9966,
             transparent);
+    --melee-gradient: linear-gradient(90deg,
+            transparent,
+            #8b7692,
+            #8b7692,
+            #8b7692,
+            #8b7692,
+            transparent);
 }
 
 
