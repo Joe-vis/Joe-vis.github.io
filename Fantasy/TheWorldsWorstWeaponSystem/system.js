@@ -204,6 +204,7 @@ function CreateCard(weapon) {
     clone.querySelector("#increase").onclick = function() {ChangeWeaponAmount(weapon, footer, 1)};
     clone.querySelector("#decrease").onclick = function() {ChangeWeaponAmount(weapon, footer, -1)};
     ShowDiscount(weapon, clone.querySelector(".blob-cost-reduction"));
+    clone.querySelector(".back::before").style.background = "--melee-gradient"
     document.getElementById("blobs").appendChild(clone);
 }
 
