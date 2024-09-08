@@ -508,7 +508,7 @@
     display: block;
     width: 160px;
     height: 160%;
-    background: var(--item-gradient);
+    background: var(--card-gradient-color);
     animation: rotation_481 5000ms infinite linear;
 }
 

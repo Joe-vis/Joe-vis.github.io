@@ -204,8 +204,13 @@ function CreateCard(weapon) {
     clone.querySelector("#increase").onclick = function() {ChangeWeaponAmount(weapon, footer, 1)};
     clone.querySelector("#decrease").onclick = function() {ChangeWeaponAmount(weapon, footer, -1)};
     ShowDiscount(weapon, clone.querySelector(".blob-cost-reduction"));
-    clone.querySelector(".back::before").style.background = "--melee-gradient"
+    if (Math.random() >0.5){
+        clone.querySelector(".back").style.setProperty("--card-gradient-color","var(--melee-gradient)")
+    } else
+        clone.querySelector(".back").style.setProperty("--card-gradient-color","var(--item-gradient)")
+
     document.getElementById("blobs").appendChild(clone);
+
 }
 
 const SetVisibility = (id, visibility) => document.getElementById(id).style.visibility = visibility;
