@@ -58,7 +58,14 @@
             <label for="weapon-damage">Damage</label>
             <input type="text" id="weapon-damage" name="Damage" placeholder="1d8">
             <label for="weapon-type">Type</label>
-            <input type="text" id="weapon-type" name="type" placeholder="melee">
+            <select name="weapon-type" id="weapon-type">
+                <option value="Melee">Melee</option>
+                <option value="Ranged">Ranged</option>
+                <option value="Item">Item</option>
+                <option value="Magic">Magic</option>
+                <option value="Custom">Custom</option>
+            </select>
+            <!-- <input type="text" id="weapon-type" name="type" placeholder="melee"> -->
             <label for="weapon-cost">Cost</label>
             <input type="number" id="weapon-cost" name="Cost" step="10" placeholder="100" min="0">
             <div>

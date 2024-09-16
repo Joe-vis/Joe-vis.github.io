@@ -76,6 +76,7 @@ function RemoveEXP(amount = 100) {
 }
 
 function LevelUp() {
+    if (level >= 20) return;
     if (currentExp < levelRequirement[level]) return;
 
     currentExp -= levelRequirement[level];
@@ -91,8 +92,8 @@ function UpdateEXP() {
     localStorage.setItem("currentExp", currentExp);
     document.getElementById(
         "expSlot"
-    ).innerHTML = `Level: ${level} EXP: ${currentExp} / ${levelRequirement[level]}`;
-    document.getElementById("level-progress").max = levelRequirement[level];
+    ).innerHTML = `Level: ${level} EXP: ${currentExp} / ${(level < 20)? levelRequirement[level]: "Max"}`;
+    document.getElementById("level-progress").max = (level < levelRequirement.length)? levelRequirement[level] : 1;
     document.getElementById("level-progress").value = currentExp;
 
     if (currentExp >= levelRequirement[level]) {
@@ -133,7 +134,7 @@ function ChangeWeaponHealth(weapon, element, heartIndex) {
 
 function ShowDiscount(weapon, element) {
     var discount = WeaponPricing(weapon.cost, weapon.health);
-    if(discount == weapon.cost) { 
+    if(discount == weapon.cost) {
         element.innerHTML = "";
         return;
     }
@@ -155,13 +156,13 @@ function weaponFormSubmit(ev) {
     var damage = document.getElementById("weapon-damage").value != "" ? document.getElementById("weapon-damage").value : 0;
     var type = document.getElementById("weapon-type").value != "" ? document.getElementById("weapon-type").value : "item";
     var cost = document.getElementById("weapon-cost").value != "" ? document.getElementById("weapon-cost").value : 0;
-    
+    console.log(type)
 
     CreateWeapon(name, damage, type, cost);
 }
 
 function CreateWeapon(name, damage = 0, type = "item", cost = 0, amount = 1, health = 2) {
-    if (currentExp < cost) { 
+    if (currentExp < cost) {
         Message("Not enough EXP", "error");
         return;
     }
@@ -196,7 +197,7 @@ function CreateCard(weapon) {
     bagohearts.querySelectorAll("input[type='checkbox']").forEach((heart, index) => {
         heart.onclick = function() {ChangeWeaponHealth(weapon, bagohearts, index)};
         if (index < weapon.health) {
-            heart.checked = true;       
+            heart.checked = true;
         }
     });
     var footer = clone.querySelector(".card-footer");
@@ -204,10 +205,7 @@ function CreateCard(weapon) {
     clone.querySelector("#increase").onclick = function() {ChangeWeaponAmount(weapon, footer, 1)};
     clone.querySelector("#decrease").onclick = function() {ChangeWeaponAmount(weapon, footer, -1)};
     ShowDiscount(weapon, clone.querySelector(".blob-cost-reduction"));
-    if (Math.random() >0.5){
-        clone.querySelector(".back").style.setProperty("--card-gradient-color","var(--melee-gradient)")
-    } else
-        clone.querySelector(".back").style.setProperty("--card-gradient-color","var(--item-gradient)")
+    clone.querySelector(".back").style.setProperty("--card-gradient-color","var(--"+weapon.type.toLowerCase()+"-gradient)")
 
     document.getElementById("blobs").appendChild(clone);
 
@@ -283,7 +281,7 @@ function preventDefaults (e) {
     e.preventDefault()
     e.stopPropagation()
 }
-  
+
 
 ;['dragenter', 'dragover'].forEach(eventName => {
     dropArea.addEventListener(eventName, highlight, false)
@@ -300,7 +298,7 @@ function highlight(e) {
 function unhighlight(e) {
     dropArea.classList.remove('highlight')
 }
-  
+
 
 dropArea.addEventListener('drop', handleDrop, false)
 
