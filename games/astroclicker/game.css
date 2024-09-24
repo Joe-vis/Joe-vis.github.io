@@ -18,3 +18,158 @@ body {
     width: 100%;
     height: 90%;
 }
+
+/* OLD */
+
+::-webkit-scrollbar {
+    width: 0;
+}
+#click {
+    width: 300px;
+}
+
+#click:active {
+    transform: translateY(6px) rotate(-5deg);
+}
+
+#cost {
+    position:absolute;
+    background: rgb(70,70,70);
+    background: linear-gradient(-45deg, rgba(70,70,70,1) 0%, rgba(28,28,28,1) 100%);
+    border-radius: 0 8px 8px 0;
+    top: 60%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    transition: width 2s;
+    z-index: 1;
+}
+
+#pointshop {
+    position:absolute;
+    height: 355px;
+    width: 210px;
+    padding: 16px;
+    border-radius: 0 8px 8px 0;
+    top: 35%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 1;
+    left: -210px;
+    transition: left 1s;
+}
+
+.shoptabber {
+    border-radius: 0 8px 8px 0;
+    position: absolute;
+    left: 100%;
+    width: 25px;
+    height: 50px;
+}
+
+#utab {
+    background: #2D2D2D;
+    top: 10%;
+}
+
+#ctab {
+    background: gold;
+    top: 25%;
+}
+
+#dtab {
+    background: #722aa1;
+    top: 40%;
+}
+
+#shiptab {
+    background: #36b9ca;
+    top: 55%; 
+}
+
+#cosmetic {
+    color: black;
+    background-color: gold;
+}
+
+.shopitem {
+    padding-bottom: 10px;
+    transition: color .1s, text-shadow .1s;
+}
+
+.shopitem:hover {
+    text-shadow: 1px 1px 3px black, 0 0 25px blue, 0 0 5px darkblue;
+    color: #CEDFFF;
+}
+
+
+.shopitem-invalid {
+    padding-bottom: 10px;
+    transition: color .1s;
+    transition: text-shadow .1s;
+}
+
+.shopitem-invalid:hover {
+    text-shadow: 1px 1px 3px black, 0 0 25px #ff141b, 0 0 5px #a30005;
+    color: #ff575c;
+}
+
+#message {
+    font-family: 'Amatic SC', cursive;
+    color: black;
+    position: absolute;
+    bottom: 3px;
+    right: 30px;
+    font-size: 32px;
+    transition: opacity 0.5s;
+}
+
+
+
+.price::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent rgb(33,33,33,0.6) transparent transparent;
+}
+
+th, td {
+    padding: 8px;
+}
+
+.btn {
+    background-color: #252525;
+    color: white;
+    border-radius: 0 !important;
+    width: 45px;
+    height: 45px;
+    border: none;
+    outline-color: #111;
+    cursor: pointer;
+    box-shadow: none !important;
+}
+.btn{outline-color: #111 !important;}
+.btn:active{outline-color: #111 !important;}
+.active, .btn:hover {
+    outline-color: #111 !important;
+    background-color: #4287f5;
+    color: white;
+}
+
+@media only screen and (max-width: 600px) {
+.tooltipp {
+    display: none !important;
+}
+
+tbody td, thead th {
+    max-width: 19vw !important;
+    min-width: 19vw !important;
+}
+
+.clicker_lb{
+    width: 80% !important;
+}
+}

@@ -1,0 +1,50 @@
+.lbnum {
+    text-decoration: none !important;
+    font-size: 5vh;
+    width: 9vh;
+    height: 9vh;
+    background-color: gold;
+    color: #111 !important;
+    padding-top: 1vh;
+    text-align: center;
+    border-radius: 0 10px 0 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+table{
+    table-layout: fixed !important;
+}
+
+
+tbody, thead tr { display: block; }
+
+tbody {
+    height: 70vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+tbody td, thead th {
+    table-layout: fixed !important;
+    max-width: 12vw;
+    min-width: 12vw;
+
+    text-overflow: ellipsis;
+}
+
+tbody td:first-child, thead th:first-child  {
+    min-width: 88px;
+    max-width: 99px;
+}
+tbody td:last-child, thead th:last-child  {
+    min-width: 12vw;
+    max-width: 15vw;
+}
+
+td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    }
