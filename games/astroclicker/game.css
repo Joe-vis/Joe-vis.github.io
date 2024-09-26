@@ -3,11 +3,34 @@
 body {
     font-family: 'Poppins', sans-serif;
     color: white !important;
-    background: rgb(255,24,133);
-    background: linear-gradient(148deg, rgb(29, 19, 38) 0%, #381230 100%);
+    background: rgb(31, 30, 30);
+    /* background: linear-gradient(148deg, rgb(29, 19, 38) 0%, #381230 100%); */
+    background: linear-gradient(188deg, rgb(41, 32, 49) 0%, #190b16 100%);
+
     margin: 0;
     overflow: hidden;
     height: 100%;
+}
+
+body::before,
+body::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: '';
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  mix-blend-mode: darken;
+  mix-blend-mode: difference;
+  mix-blend-mode: exclusion;
+  mix-blend-mode: multiply;
+}
+
+body::before {
+    background: #000000;
+    filter: url(#noiseFilter);
+
 }
 
 .center {
@@ -26,11 +49,39 @@ body {
 }
 #click {
     width: 300px;
+    filter: drop-shadow(5px 5px 4px rgba(0,0,0,0.26));
+    transition: all 0.05s;
 }
 
 #click:active {
     transform: translateY(6px) rotate(-5deg);
 }
+
+#meteor_health {
+    -webkit-appearance: none;
+    appearance: none;
+
+   width: 250px;
+   height: 20px;
+
+   background-color: rgb(54, 54, 54);
+   border: none;
+   border-radius: 15px;
+}
+#meteor_health::-webkit-progress-value {
+    background-image:
+	   -webkit-linear-gradient(-45deg,
+	                           transparent 33%, rgba(0, 0, 0, .1) 33%,
+	                           rgba(0,0, 0, .1) 66%, transparent 66%),
+	   -webkit-linear-gradient(top,
+	                           rgba(255, 255, 255, .25),
+	                           rgba(0, 0, 0, .25)),
+	   -webkit-linear-gradient(left, #09c, #f44);
+
+    border-radius: 2px;
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
 
 #cost {
     position:absolute;
@@ -83,7 +134,7 @@ body {
 
 #shiptab {
     background: #36b9ca;
-    top: 55%; 
+    top: 55%;
 }
 
 #cosmetic {
@@ -169,7 +220,5 @@ tbody td, thead th {
     min-width: 19vw !important;
 }
 
-.clicker_lb{
-    width: 80% !important;
-}
+
 }

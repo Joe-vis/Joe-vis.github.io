@@ -47,4 +47,8 @@ td {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    }
+}
+
+.clicker_lb{
+    width: 80% !important;
+}

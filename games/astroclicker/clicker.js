@@ -18,7 +18,7 @@
     Array.prototype.forEach.call(document.getElementsByClassName("shoptab"), element => {
         element.style.display = "none"
         console.log(element.id)
-        
+
     });
 
     switch(name){
@@ -81,19 +81,25 @@
 (function(){
 
     var meteorHealth = 100
+    var meteorResistance = 0;
     var points = 0;
+    var totalPoints = 0;
     var multiplier = 1;
-    var click = 1;
+    var click = 0.1;
     var mp = 1;
     var timeout;
     var value = document.getElementById("cost");
     var msg = document.getElementById("message");
     var merchanttxt = ["You need credits for that", "You can't afford that", "Try again when you have some creds"];
     var spiritualisttxt = ["DON'T TOUCH THAT", "Careful with that", "That could curse you"];
-
     var thebook = false;
 
-
+    var itemList = [{
+        itemName: "multiplier",
+        // cost: 100 * (1.15 ** currentAmount * currentAmount),
+        maxAmount: 100,
+        currentAmount: 1
+    }]
     //Robot
 
     var robotisactive = false;
@@ -177,7 +183,7 @@
             case 2:
                 if(click >= 50){
                     value.innerHTML = "Already at max";
-                } else{ value.innerHTML = "cost: " + ~~(200 * (1.25 ** click * click)); }
+                } else{ value.innerHTML = "cost: " + ~~(400 * (1.25 ** click * click)); }
                 break;
 
             case 3:
@@ -215,62 +221,38 @@
     }
 
     function merchantstext(option){
+        clearTimeout(timeout);
+        msg.style.opacity = 1;
+        timeout = setTimeout(function(){  msg.style.opacity = 0; }, 6000);
 
         switch(option) {
-
             case 1:
-                clearTimeout(timeout);
-                msg.innerHTML = "Merchant: " + merchanttxt[~~(Math.random() * 3)];
-                msg.style.opacity = 1;
-                timeout = setTimeout(function(){  msg.style.opacity = 0; }, 6000);
-                break;
-
-            case 2:
-                clearTimeout(timeout);
-                msg.style.opacity = 1;
-                timeout = setTimeout(function(){  msg.style.opacity = 0; }, 6000);
+                // msg.innerHTML = "Merchant: " + merchanttxt[~~(Math.random() * 3)];
+                msg.innerHTML = thisShouldBeJSON[0].speaker + ": " + thisShouldBeJSON[0].text
                 break;
 
             case 3:
-                clearTimeout(timeout);
                 msg.innerHTML = "Merchant: Thats not for sale";
-                msg.style.opacity = 1;
-                timeout = setTimeout(function(){  msg.style.opacity = 0; }, 6000);
                 break;
 
             case 4:
-                clearTimeout(timeout);
                 msg.innerHTML = "Merchant: Sorry can't sell you that";
-                msg.style.opacity = 1;
-                timeout = setTimeout(function(){  msg.style.opacity = 0; }, 6000);
                 break;
 
            case 5:
-                clearTimeout(timeout);
                 msg.innerHTML = "Merchant: Just remember to recharge it";
-                msg.style.opacity = 1;
-                timeout = setTimeout(function(){  msg.style.opacity = 0; }, 6000);
                 break;
 
             case 6:
-                clearTimeout(timeout);
                 msg.innerHTML = "Merchant: A strange looking book, isn't it";
-                msg.style.opacity = 1;
-                timeout = setTimeout(function(){  msg.style.opacity = 0; }, 6000);
                 break;
 
             case 7:
-                clearTimeout(timeout);
                 msg.innerHTML = "I need the robot first";
-                msg.style.opacity = 1;
-                timeout = setTimeout(function(){  msg.style.opacity = 0; }, 6000);
                 break;
 
             case 8:
-                clearTimeout(timeout);
                 msg.innerHTML = "The robot is complete";
-                msg.style.opacity = 1;
-                timeout = setTimeout(function(){  msg.style.opacity = 0; }, 6000);
                 break;
         }
 
@@ -281,11 +263,8 @@
 
 
     function spiritualisttext(option){
-
         clearTimeout(timeout);
-
         msg.style.opacity = 1;
-
         timeout = setTimeout(function(){  msg.style.opacity = 0; }, 6000);
             switch(option) {
                 default:
@@ -299,17 +278,32 @@
 
     function updatePoints() {
         points = (Math.round((points + Number.EPSILON) * 10) / 10)
-        document.getElementById("points").innerHTML = "Credits: " + points.toLocaleString("en-US");
+        document.getElementById("points").innerHTML = "Credits: " + Math.floor(points).toLocaleString("en-US");
 
     }
 
     function pointup() {
         if(multiplier > 80){multiplier = 80;}
         if(click > 50){click = 50;}
-        points += click * multiplier;
-        meteorHealth -= 10
+
+        var pointGain = click * multiplier
+        totalPoints += pointGain
+        points += pointGain
+        meteorHealth -= 10 * (1-meteorResistance)
         document.getElementById("meteor_health").value = meteorHealth
+        if(meteorHealth <= 0)
+            destroyMeteor()
         updatePoints()
+    }
+
+    function destroyMeteor(){
+        var pointGain = 10 * multiplier
+        totalPoints += pointGain
+        points += pointGain
+        meteorHealth = 100
+        meteorResistance = Math.random() * (0.99 - 0) + 0;
+        document.getElementById("meteor_health").value = meteorHealth
+
     }
 
     function multup(mp) {
@@ -319,7 +313,7 @@
                 if(points >= 100 * (1.15 ** multiplier * multiplier)) {
                     points -= ~~(100 * (1.15 ** multiplier * multiplier));
                     multiplier += .2
-                    document.getElementById("mup").innerHTML = "multiplier: " + Math.round((multiplier + Number.EPSILON) * 100) / 100;
+                    document.getElementById("mup").innerHTML = "Ore Locator: " + Math.round((multiplier + Number.EPSILON) * 100) / 100;
                     updatePoints()
                 }
             else {merchantstext(1); break;}
@@ -328,21 +322,16 @@
     }
 
     function clickup(mp) {
-
         for (i = 1; i <= mp; i++) {
-
             if (multiplier <= 49){
-
-            if(points >= 200 * (1.25 ** click * click)) {
-                points -= ~~(200 * (1.25 ** click * click));
-                click += 1
-                document.getElementById("cup").innerHTML = "points per click: " + Math.round((click + Number.EPSILON) * 100) / 100;
-                updatePoints()
-
-            }
-
-            else {merchantstext(1); break;}
-
+                pointCost = ~~(400 * (1.25 ** click * click))
+                if(points >= pointCost) {
+                    points -= pointCost;
+                    click += 0.1
+                    document.getElementById("cup").innerHTML = "Drill Bit: " + Math.round((click + Number.EPSILON) * 100) / 100;
+                    updatePoints()
+                }
+                else {merchantstext(1); break;}
         } else {merchantstext(1); break;}
 
         }
@@ -355,26 +344,15 @@
     function activaterobot() {
 
         if(points >= 1000 && robotisactive == false){
-
             robotisactive = true;
-
             points -= 1000;
-
             passivetime = setInterval(passive, 1000);
-
             merchantstext(5);
-
             updatePoints()
-
             activateRobotItems()
-
-
-
         } else{merchantstext(4)}
 
     }
-
-
 
     function activateRobotItems() {
         document.getElementById("robot").style.display = "none";
@@ -383,25 +361,14 @@
     }
 
     function robotparts(mp) {
-
         if(robotisactive == true) {
-
             for (i = 1; i <= mp; i++) {
-
                 if(points >=  partscost && passiveClick <= 60){
-
                     points -= partscost
-
                     partscost = ~~(partscost ** 1.25)
-
                     passiveClick += 10;
-
                 } else if(passiveClick >= 70) {merchantstext(8); break;
-
                 } else{merchantstext(1); break;}
-
-
-
             }
 
         }else {merchantstext(7);}
@@ -443,9 +410,6 @@
 
 
     // Demonic
-
-
-
     function thegoldenclock() {
         if(points >= 9999999999){
             points=0;
