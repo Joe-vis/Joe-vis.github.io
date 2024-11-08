@@ -9,7 +9,6 @@
             position: absolute;
             background-color: red;
             text-align:center;
-            padding-top:15px;
             }
 
             details {
@@ -189,16 +188,16 @@
         document.body.style.background = document.getElementById("bgcolor").value;
         document.getElementById("bouncer").style.backgroundImage = "url(" + document.getElementById('url').value + ")";
         bouncer.style.transform = `scale(${document.getElementById('scale').value})`;
-        
+
 
     }
 
     function bouncertxt() {
         document.getElementById("bouncer").innerHTML = document.getElementById("txt").value;
     }
-    
+
     function myMove() {
-    var elem = document.getElementById("bouncer");   
+    var elem = document.getElementById("bouncer");
     var posY = 0;
     var posX = 0;
     var DirX = "right"
@@ -208,70 +207,73 @@
     var Xint = Math.floor(Math.random() * 15)
     clearInterval(yd);
     clearInterval(xd);
-   
+
     yd = setInterval(frameY, Yint);
     xd = setInterval(frameX, Xint);
 
     function frameY() {
-        switch(posY){
-            case window.innerHeight - document.getElementById("bouncer").style.height.replace(/px/gi, "") * document.getElementById('scale').value:
-                DirY = "up"
-            break;
-            case 0 - trueYoffset:
-                DirY = "down"
-            break;
+        var bouncerRawHeight = elem.style.height.replace(/px/gi, "")
+        var scale = document.getElementById('scale').value
+        var center = posY + bouncerRawHeight / 2
+        var scaledHeight = bouncerRawHeight / 2 * scale
+
+        if(center >= window.innerHeight - scaledHeight) {
+            DirY = "up"
+        } else if(center <= scaledHeight) {
+            DirY = "down"
         }
 
         switch(DirY){
             case "up":
-                posY--; 
+                posY--;
                 elem.style.top = posY + 'px';
             break;
-            case "down": 
-                posY++; 
-                elem.style.top = posY + 'px'; 
+            case "down":
+                posY++;
+                elem.style.top = posY + 'px';
             break;
         }
         }
 
     function frameX() {
-        switch(posX){
-            case window.innerWidth - document.getElementById("bouncer").style.width.replace(/px/gi, "")  * document.getElementById('scale').value:
-                DirX = "left"
-            break;
-            case 0:
-                DirX = "right"
-            break;
+        var bouncerRawWidth = elem.style.width.replace(/px/gi, "")
+        var scale = document.getElementById('scale').value
+        var center = posX + bouncerRawWidth / 2
+        var scaledWidth = bouncerRawWidth / 2 * scale
 
+        if(center >= window.innerWidth - scaledWidth) {
+            DirX = "left"
+        } else if (center <= scaledWidth) {
+            DirX = "right"
         }
 
         switch(DirX){
             case "left":
-                posX--; 
+                posX--;
                 elem.style.left = posX + 'px';
             break;
-            case "right": 
-                posX++; 
-                elem.style.left = posX + 'px'; 
+            case "right":
+                posX++;
+                elem.style.left = posX + 'px';
             break;
         }
         }
 
     }
-    
+
   function uniCharCode(event){
             switch(event.key){
                 case "Enter":
-                    if(document.getElementById("hidden").style.visibility == "visible") 
+                    if(document.getElementById("hidden").style.visibility == "visible")
                         document.getElementById("hidden").style.visibility = "hidden";
                     else
                         document.getElementById("hidden").style.visibility = "visible";
-                break; 
+                break;
                 case "+":
                     var x = new Number(document.getElementById("bouncer").style.fontSize.replace(/px|"/gi, ""));
                     document.getElementById("bouncer").style.fontSize = x + 1;
                 break;
-                case "-":   
+                case "-":
                     document.getElementById("bouncer").style.fontSize = document.getElementById("bouncer").style.fontSize.replace(/px/gi, "") - 1;
                 break;
             }
