@@ -6,9 +6,10 @@
 
         <style>
             #bouncer {
-            position: absolute;
-            background-color: red;
-            text-align:center;
+                position: absolute;
+                background-color: red;
+                text-align:center;
+                z-index: -1;
             }
 
             details {
@@ -234,6 +235,7 @@
             break;
         }
         }
+
 
     function frameX() {
         var bouncerRawWidth = elem.style.width.replace(/px/gi, "")
